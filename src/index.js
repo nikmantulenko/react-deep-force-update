@@ -58,7 +58,7 @@ export default function deepForceUpdate(
   shouldUpdate = () => true,
   onUpdate = () => {},
 ) {
-  const root = instance._reactInternalFiber || instance._reactInternalInstance
+  const root = instance._reactInternals || instance._reactInternalFiber || instance._reactInternalInstance
   if (typeof root.tag !== 'number') {
     // Traverse stack-based React tree.
     return deepForceUpdateStack(instance, shouldUpdate, onUpdate)
